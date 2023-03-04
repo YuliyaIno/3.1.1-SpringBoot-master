@@ -13,11 +13,15 @@ public class User {
     private Integer id;
 
     @Column(name = "name")
-    @Size(min = 2, max = 50, message = "Name length should from 2 to 50 characters")
+//    @Size(min = 2, max = 50, message = "Name length should from 2 to 50 characters")
     private String name;
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "age")
+//    @Min(value = 1, message = "Minimal age is 1")
+    private int age;
 
     public Integer getId() {
         return id;
@@ -27,10 +31,6 @@ public class User {
         this.id = id;
     }
 
-    @Column(name = "age")
-    @Min(value = 1, message = "Minimal age is 1")
-    private int age;
-
     public String getName() {
         return name;
     }
@@ -39,11 +39,11 @@ public class User {
         this.name = name;
     }
 
-    public String getemail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setemail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
