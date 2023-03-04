@@ -48,27 +48,9 @@ public class UserController {
         return "redirect:/users";
     }
 
-//    @GetMapping("/edit")
-//    public String printEditForm(@RequestParam(value = "id", required = false) Integer id, ModelMap modelMap) {
-//        String redirectNotExistsTo = "/users";
-//        User user = id == null ? null : userService.getUserById(id);
-//
-//        if (user == null) return "redirect:" + redirectNotExistsTo;
-//
-//        modelMap.addAttribute("isCreate", false);
-//        modelMap.addAttribute("user", user);
-//
-//        return "create";
-//    }
-
     @GetMapping("/edit")
     public String printEditForm(@RequestParam(value = "id", required = false) Integer id, ModelMap modelMap) {
-//        String redirectNotExistsTo = "/users";
-//        User user = id == null ? null : userService.getUserById(id);
-//
-//        if (user == null) return "redirect:" + redirectNotExistsTo;
-//
-//        modelMap.addAttribute("isCreate", false);
+        modelMap.addAttribute("isCreate", false);
         modelMap.addAttribute("user", userService.getUserById(id));
 
         return "create";
@@ -82,18 +64,10 @@ public class UserController {
         return "redirect:/users";
     }
 
-//    @GetMapping("/delete")
-//    public String printDeleteUser(@RequestParam(value = "id") Integer id) {
-//        userService.deleteUser(id);
-//
-//        return "redirect:/users";
-//    }
-
-    @PostMapping("/delete")
-    public String deleteUser(@RequestParam(value = "id") Integer id) {
+    @GetMapping("/delete")
+    public String printDeleteUser(@RequestParam(value = "id") Integer id) {
         userService.deleteUser(id);
 
         return "redirect:/users";
     }
-
 }

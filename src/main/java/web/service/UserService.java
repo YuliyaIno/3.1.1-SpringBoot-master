@@ -8,7 +8,7 @@ public interface UserService {
 
     void createUser(User user);
 
-    void updateUser(User user);
+    String updateUser(User user);
 
     void deleteUser(Integer id);
 

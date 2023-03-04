@@ -14,13 +14,13 @@
         <tr>
             <th>Name</th>
             <th>Age</th>
-            <th>email</th>
+            <th>Email</th>
             <th>Action</th>
         </tr>
         <tr th:each="user:${users}">
             <td th:text="${user.getName()}"></td>
             <td th:text="${user.getAge()}"></td>
-            <td th:text="${user.getemail()}"></td>
+            <td th:text="${user.getEmail()}"></td>
             <td>
                 <a th:href="@{/users/edit(id=${user.getId()})}">Edit</a>
                 <a th:href="@{/users/delete(id=${user.getId()})}">Delete</a>

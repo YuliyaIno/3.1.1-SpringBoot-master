@@ -9,24 +9,29 @@ import web.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
+@Transactional
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
-    @Transactional
+
     @Override
     public void createUser(User user) {
         userDao.saveUser(user);
     }
 
-    @Transactional
+
     @Override
-    public void updateUser(User user) {
+    public String updateUser(User user) {
         userDao.updateUser(user);
+        String redirectNotExistsTo = "/users";
+        if (user == null)
+            return "redirect:" + redirectNotExistsTo;
+        return redirectNotExistsTo;
     }
 
-    @Transactional
+
     @Override
     public void deleteUser(Integer id) {
         userDao.deleteUser(id);
